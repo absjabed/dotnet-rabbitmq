@@ -2,7 +2,6 @@
 using System.Text;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using System.Threading;
 
 namespace RabbitMQ.Producer
 {
@@ -12,12 +11,12 @@ namespace RabbitMQ.Producer
         {
             var factory = new ConnectionFactory 
             {
-                Uri = new Uri("amqp://guest:guest@192.168.99.100:5672")
+                Uri = new Uri("amqp://guest:guest@localhost:5672")
             };
 
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            DirectExchangePublisher.Publish(channel); 
+            TopicExchangePublisher.Publish(channel); 
         }
     }
 }
