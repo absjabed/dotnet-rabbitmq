@@ -10,14 +10,14 @@ namespace RabbitMQ.Producer
     {
         static void Main(string[] args)
         {
-            var factory = new ConnectionFactory
+            var factory = new ConnectionFactory 
             {
                 Uri = new Uri("amqp://guest:guest@192.168.99.100:5672")
             };
 
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            QueueProducer.Publish(channel); 
+            DirectExchangePublisher.Publish(channel); 
         }
     }
 }
