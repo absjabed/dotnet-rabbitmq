@@ -16,7 +16,7 @@ namespace RabbitMQ.Producer
 
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            HeaderExchangePublisher.Publish(channel); 
+            FanoutExchangePublisher.Publish(channel); 
         }
     }
 }
