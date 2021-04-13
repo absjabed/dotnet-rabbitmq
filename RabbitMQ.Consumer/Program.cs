@@ -12,12 +12,12 @@ namespace RabbitMQ.Consumer
         {
              var factory = new ConnectionFactory
             {
-                Uri = new Uri("amqp://guest:guest@192.168.99.100:5672")
+                Uri = new Uri("amqp://guest:guest@localhost:5672")
             };
 
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            DirectExchangeConsumer.Consume(channel);
+            TopicExchangeConsumer.Consume(channel);
         }
     }
 }
